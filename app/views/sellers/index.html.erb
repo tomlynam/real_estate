@@ -1,0 +1,17 @@
+<h1>Sellers</h1>
+
+<% if @sellers.any? %>
+	<ul>
+		<% @sellers.each do |seller| %>
+			<li>
+				<h2><%= seller.name %></h2>
+				<h2><%= seller.email %></h2>
+				<% end %>
+			</li>
+		</ul>
+<% else %>
+	<h3>No sellers, please create one!</h3>
+<% end %>
+
+
+<%= link_to 'New Seller', new_seller_path %>
