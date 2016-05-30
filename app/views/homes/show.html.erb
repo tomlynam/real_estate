@@ -1,2 +1,20 @@
-<h1>Homes#show</h1>
-<p>Find me in app/views/homes/show.html.erb</p>
+<h1>Charming Home in <%= @home.neighborhood %></h1>
+
+
+<h2>Bedrooms:</h2>
+<p><%= @home.bedrooms %></p>
+
+<h2>Bathrooms:</h2>
+<p><%= @home.bathrooms %></p>
+
+<h2>Square Footage:</h2>
+<p><%= @home.square_footage %></p>
+
+
+<hr>
+
+<%= link_to 'Edit', edit_seller_home_path(@seller, @home) %> | 
+
+<%= link_to 'Delete', seller_home_path(@seller, @home), method: :delete, data: {confirm: 'Really delete?'} %> |
+
+<%= link_to "See all homes from #{@seller.name}", seller_homes_path(@seller) %>

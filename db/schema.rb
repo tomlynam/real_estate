@@ -18,9 +18,10 @@ ActiveRecord::Schema.define(version: 20160527232019) do
 
   create_table "homes", force: :cascade do |t|
     t.string   "neighborhood"
-    t.float    "bedrooms"
-    t.float    "bathooms"
+    t.integer  "bedrooms"
+    t.float    "bathrooms"
     t.integer  "square_footage"
+    t.integer  "seller_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end

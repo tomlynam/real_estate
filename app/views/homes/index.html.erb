@@ -1,2 +1,19 @@
-<h1>Homes#index</h1>
-<p>Find me in app/views/homes/index.html.erb</p>
+<h1>Browse Homes from: <%= @seller.name %> </h1>
+
+<hr>
+
+<% if @homes.any? %>
+	<ul>
+		<% @homes.each do |home| %>
+			<li>
+				<%= link_to home.neighborhood, seller_home_path(@seller, home) %>
+			</li>
+		<% end %>
+	</ul>
+<% else %>
+	<h3>No homes available, please list one!</h3>
+<% end %>
+
+
+<%= link_to 'New Home', new_seller_home_path(@seller) %>
+<%= link_to 'Back', seller_path(@seller) %>

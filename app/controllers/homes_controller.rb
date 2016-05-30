@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
   before_action :seller
-  before_action :home, :only: [:show, :edit, :update, :destroy]
+  before_action :home, only: [:show, :edit, :update, :destroy]
 
   def index
   	@homes = @seller.homes
@@ -56,5 +56,4 @@ class HomesController < ApplicationController
   def seller
   	@seller = Seller.find(params[:seller_id])
   end
-
 end

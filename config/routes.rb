@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   
   resources :sellers do
   	resources :homes
+  end
 end

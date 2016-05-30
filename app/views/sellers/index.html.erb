@@ -4,8 +4,7 @@
 	<ul>
 		<% @sellers.each do |seller| %>
 			<li>
-				<h2><%= seller.name %></h2>
-				<h2><%= seller.email %></h2>
+				<h2><%= link_to seller.name, seller_path(seller) %></h2>
 				<% end %>
 			</li>
 		</ul>
