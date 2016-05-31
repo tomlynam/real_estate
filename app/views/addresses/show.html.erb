@@ -1,0 +1,13 @@
+<h1>Address for Charming Home in <%= @home.neighborhood %></h1>
+
+<h3><%= @address.street %></h3>
+<h3><%= @address.city %>, <%= @address.state %> <%= @address.zip %></h3>
+
+
+<hr>
+
+<%= link_to 'Edit', edit_address_path(@address) %> | 
+
+<%= link_to 'Delete', address_path(@address), method: :delete, data: {confirm: 'Really delete?'} %> |
+
+<%= link_to 'Back', address_path(@address) %>

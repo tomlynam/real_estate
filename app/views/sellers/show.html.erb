@@ -7,11 +7,11 @@
 <!-- put contact form here -->
 
 
-<%= link_to 'Homes', seller_homes_path(@seller) %>
+<%= link_to 'View Homes', seller_homes_path(@seller) %>
 
 
 <hr>
 
-<%= link_to 'Edit', edit_seller_path(@seller) %>
-<%= link_to 'Delete', seller_path(@seller), method: :delete, data: {confirm: 'Really delete?'} %>
+<%= link_to 'Edit', edit_seller_path(@seller) %> |
+<%= link_to 'Delete', seller_path(@seller), method: :delete, data: {confirm: 'Really delete?'} %> |
 <%= link_to 'All Sellers', sellers_path %>

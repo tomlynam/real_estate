@@ -1,0 +1,16 @@
+<h1>Address</h1>
+
+<% if @addresses.any? %>
+	<ul>
+		<% @addresses.each do |address| %>
+			<li>
+				<h2><%= link_to address.street, address_path(address) %></h2>
+				<% end %>
+			</li>
+		</ul>
+<% else %>
+	<h3>No addresses, please create one!</h3>
+<% end %>
+
+
+<%= link_to 'New Address', new_address_path %>
