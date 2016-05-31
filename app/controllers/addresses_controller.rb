@@ -1,34 +1,39 @@
 class AddressesController < ApplicationController
-  before_action :home
   before_action :address, only: [:show, :edit, :update, :destroy]
+  before_action :home, only: [:update, :show, :destroy]
+  before_action :seller, only: [:update, :show, :destroy]
 
   def index
-  	@addresses = Address.all
+  	redirect_to sellers_path
   end
 
   def show
   end
 
   def new
-  	@address = Address.new
+  	@home = Home.find(params[:home_id])
+    @address = Address.new
   end
 
   def create
-  	@address = @home.addresses.new(address_params)
+    @address = Address.new(address_params)
+    @home = @address.home
+    @seller = @home.seller
   	if @address.save
   		flash[:success] = "Address re: #{@address.street} created!"
-  		redirect_to address_path(id: @address.id, home_id: @home.id)
+  		redirect_to seller_home_path(@seller, @home)
   	else
   		render :new
   	end
   end
 
   def edit
+    @home = Home.find(@address.home_id)
   end
 
   def update
   	if @address.update(address_params)
-  		flash[:success] = "Address re: in #{@address} updated!"
+  		flash[:success] = "Address re: in #{@address.street} updated!"
   		redirect_to address_path(@address)
   	else
   		render :edit
@@ -39,7 +44,7 @@ class AddressesController < ApplicationController
   	empty_lot = @address.street
   	@address.destroy
   	flash[:success] = "Address re: #{empty_lot} destroyed!"
-  	redirect_to addresses_path
+    redirect_to seller_home_path(@seller, @home)
   end
 
   private
@@ -53,7 +58,11 @@ class AddressesController < ApplicationController
   end
 
   def home
-  	@home = Home.find(params[:home_id])
+  	@home = Home.find(@address.home_id)
+  end
+
+  def seller
+    @seller = Seller.find(@home.seller_id)
   end
 
 end

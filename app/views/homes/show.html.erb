@@ -10,18 +10,14 @@
 <p><%= @home.square_footage %></p>
 
 
-<% if @addresses != nil %>
-	<h4>Address</h4>
-	<ul>
-		<% @home.addresses.each do |address| %>
-		<li>
-			<%= address.street %>
-		</li>
-		<% end %>
-	</ul>
+<% if @home.address %>
+	<h2>Address:</h2>
+	<p><%= @home.address.street %></p>
+	<p><%= @home.address.city %>, <%= @home.address.state %> <%= @home.address.zip %></p>
+	<%= link_to 'Edit Address', edit_address_path(@home.address) %>
 <% else %>
-<h3>No addresses found. Please create one!</h3>
-<h3><%= link_to 'Add a New Address for this Location', new_address_path(home_id: @home.id) %></h3>
+	<h3>No addresses found. Please create one!</h3>
+	<h3><%= link_to 'Add a New Address for this Location', new_address_path(home_id: @home.id) %></h3>
 <% end %>
 
 <hr>
