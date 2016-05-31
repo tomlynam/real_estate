@@ -11,6 +11,8 @@
 	<%= f.label :zip %>
 	<%= f.text_field :zip %>
 
+	<%= f.hidden_field :home_id, value: @home.id %>
+
 	<%= f.submit %>
 
 <% end %>

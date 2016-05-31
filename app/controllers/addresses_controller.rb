@@ -1,4 +1,5 @@
 class AddressesController < ApplicationController
+  before_action :home
   before_action :address, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -13,10 +14,10 @@ class AddressesController < ApplicationController
   end
 
   def create
-  	@address = Address.new(address_params)
+  	@address = @home.addresses.new(address_params)
   	if @address.save
   		flash[:success] = "Address re: #{@address.street} created!"
-  		redirect_to address_path(@address)
+  		redirect_to address_path(id: @address.id, home_id: @home.id)
   	else
   		render :new
   	end
@@ -44,11 +45,15 @@ class AddressesController < ApplicationController
   private
 
   def address_params
-  	params.require(:address).permit(:street, :city, :state, :zip)
+  	params.require(:address).permit(:street, :city, :state, :zip, :home_id)
   end
 
   def address
   	@address = Address.find(params[:id])
+  end
+
+  def home
+  	@home = Home.find(params[:home_id])
   end
 
 end

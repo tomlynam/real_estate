@@ -4,7 +4,7 @@
 	<ul>
 		<% @addresses.each do |address| %>
 			<li>
-				<h2><%= link_to address.street, address_path(address) %></h2>
+				<h2><%= address.street %></h2>
 				<% end %>
 			</li>
 		</ul>

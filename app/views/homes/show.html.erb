@@ -1,6 +1,5 @@
 <h1>Charming Home in <%= @home.neighborhood %></h1>
 
-
 <h2>Bedrooms:</h2>
 <p><%= @home.bedrooms %></p>
 
@@ -10,15 +9,29 @@
 <h2>Square Footage:</h2>
 <p><%= @home.square_footage %></p>
 
-<!-- loop through addresses here -->
 
-<%= link_to 'New Address', new_address_path %>
-
+<% if @addresses != nil %>
+	<h4>Address</h4>
+	<ul>
+		<% @home.addresses.each do |address| %>
+		<li>
+			<%= address.street %>
+		</li>
+		<% end %>
+	</ul>
+<% else %>
+<h3>No addresses found. Please create one!</h3>
+<h3><%= link_to 'Add a New Address for this Location', new_address_path(home_id: @home.id) %></h3>
+<% end %>
 
 <hr>
 
-<%= link_to 'Edit', edit_seller_home_path(@seller, @home) %> | 
+<h3>
 
-<%= link_to 'Delete', seller_home_path(@seller, @home), method: :delete, data: {confirm: 'Really delete?'} %> |
+<%= link_to 'Edit Home', edit_seller_home_path(@seller, @home) %> | 
+
+<%= link_to 'Delete Home', seller_home_path(@seller, @home), method: :delete, data: {confirm: 'Really delete?'} %> |
 
 <%= link_to "See all homes from #{@seller.name}", seller_homes_path(@seller) %>
+
+</h3>
