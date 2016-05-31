@@ -3,7 +3,7 @@ class HomesController < ApplicationController
   before_action :home, only: [:show, :edit, :update, :destroy]
 
   def index
-  	@homes = @seller.homes
+  	@homes = @seller.homes.where(sold: false)
   end
 
   def show
@@ -46,7 +46,7 @@ class HomesController < ApplicationController
   
   def home_params
   	params.require(:home).permit(:neighborhood, :bedrooms, 
-  															 :bathrooms, :square_footage)
+  															 :bathrooms, :square_footage, :sold)
   end
 
   def home

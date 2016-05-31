@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160530232838) do
     t.integer  "bedrooms"
     t.float    "bathrooms"
     t.integer  "square_footage"
+    t.boolean  "sold"
     t.integer  "seller_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false

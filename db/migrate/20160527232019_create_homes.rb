@@ -5,6 +5,7 @@ class CreateHomes < ActiveRecord::Migration
       t.integer :bedrooms
       t.float :bathrooms
       t.integer :square_footage
+      t.boolean :sold
       t.belongs_to :seller
 
       t.timestamps null: false

@@ -1,4 +1,11 @@
-<h1>Charming Home in <%= @home.neighborhood %></h1>
+<% binding.pry %>
+
+<% if @home.sold == true %>
+	<h1>Charming Home in <%= @home.neighborhood %> - SOLD</h1>
+<% else %>
+	<h1>Charming Home in <%= @home.neighborhood %></h1>
+<% end %>
+
 
 <h2>Bedrooms:</h2>
 <p><%= @home.bedrooms %></p>
