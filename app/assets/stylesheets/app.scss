@@ -1,0 +1,44 @@
+html {
+	background-color: #D3D3D3;
+}
+
+.container {
+	margin: 30px auto;
+	width: 720px;
+	border: 1px solid #00356B;
+	border-radius: 10px;
+	padding: 10px 20px 30px 20px;
+}
+
+.banner {
+	text-align: center;
+	width: 100vw;
+	background-color: #00356B;
+	color: #fff;
+	font-family: Arial;
+	overflow: auto;
+	margin-top: -10px;
+	margin-left: -8px;
+}
+
+.banner h3 {
+	font-style: italic;
+}
+
+.red-text {
+	color: red;
+}
+
+.flash {
+	text-align: center;
+	width: 50%;
+	font-size: 20px;
+	font-family: Arial;
+	border-radius: 10px;
+}
+
+.flash.success {
+	background-color: green;
+	color: white;
+	padding: 10px;
+}

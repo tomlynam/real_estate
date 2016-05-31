@@ -8,15 +8,24 @@
 </head>
 <body>
 
-<% if flash.any? %>
-<% flash.each do |key, value| %>
-		<div>
-			<%= value %>
-		</div>
-	<% end %>
-<% end %>
+<header class="banner">
+<h1>Mogul-Up Realty</h1>
+<h3>"Above ground pools are more expensive than you'd think"</h3>
+</header>
 
-<%= yield %>
+<section class="container">
+
+	<% if flash.any? %>
+	<% flash.each do |key, value| %>
+			<div class="flash <%= key %>">
+				<%= value %>
+			</div>
+		<% end %>
+	<% end %>
+
+	<%= yield %>
+
+</section>
 
 </body>
 </html>

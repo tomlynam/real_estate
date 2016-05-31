@@ -3,7 +3,7 @@ class HomesController < ApplicationController
   before_action :home, only: [:show, :edit, :update, :destroy]
 
   def index
-  	@homes = @seller.homes.where(sold: false)
+    @homes = @seller.homes.where(sold: false)
   end
 
   def show

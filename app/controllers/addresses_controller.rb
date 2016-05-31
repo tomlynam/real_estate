@@ -34,7 +34,7 @@ class AddressesController < ApplicationController
   def update
   	if @address.update(address_params)
   		flash[:success] = "Address re: in #{@address.street} updated!"
-  		redirect_to address_path(@address)
+  		redirect_to seller_home_path(@seller, @home)
   	else
   		render :edit
   	end

@@ -1,5 +1,3 @@
-<% binding.pry %>
-
 <% if @home.sold == true %>
 	<h1>Charming Home in <%= @home.neighborhood %> - SOLD</h1>
 <% else %>
@@ -7,18 +5,15 @@
 <% end %>
 
 
-<h2>Bedrooms:</h2>
-<p><%= @home.bedrooms %></p>
+<h3>Bedrooms: <%= @home.bedrooms %></h3>
 
-<h2>Bathrooms:</h2>
-<p><%= @home.bathrooms %></p>
+<h3>Bathrooms: <%= @home.bathrooms %></h3>
 
-<h2>Square Footage:</h2>
-<p><%= @home.square_footage %></p>
+<h3>Square Footage: <%= number_with_delimiter(@home.square_footage) %></h3>
 
 
 <% if @home.address %>
-	<h2>Address:</h2>
+	<h3>Address:</h3>
 	<p><%= @home.address.street %></p>
 	<p><%= @home.address.city %>, <%= @home.address.state %> <%= @home.address.zip %></p>
 	<%= link_to 'Edit Address', edit_address_path(@home.address) %>
